@@ -4,26 +4,58 @@ angular.module('ui.bootstrap.demo').controller('AccordionDemoCtrl', function ($s
 
   $scope.groups = [
     { 
-      type: 'firewall',
-      title: 'Dynamic Group Header - 1',
-      content: 'Dynamic Group Body - 1'
+      "type": "Build",
+      "title": "Tenrox-R1_1235",
+      "state": "Pending",
     },
     {
-      type: 'firewall',
-      title: 'Dynamic Group Header - 2',
-      content: 'Dynamic Group Body - 2'
+      "type": "Firewall",
+      "title": "432462",
+      "owner": "jtuck",
+      "time_started": "4/18/2014 12:12pm",
+      "state": "Running",
+      "metrics": "60"
+    },
+    {
+      "type": "Firewall",
+      "title": "432461",
+      "owner": "samy",
+      "time_started": "4/18/2014 10:53pm",
+      "state": "Rejected",
+      "metrics": "-1",
+      "build": "100",
+      "unit_test": "100",
+      "functional_test": "100",
+    },
+    {
+      "type": "Build",
+      "title": "Tenrox-R1_1234",
+      "time_started": "4/17/2014 9:42am",
+      "state": "Complete",
+      "metrics": "100",
+      "build": "100",
+      "unit_test": "100",
+      "functional_test": "100",
+    },
+    {
+      "type": "Firewall",
+      "title": "432460",
+      "owner": "samy",
+      "time_started": "4/17/2014 7:51am",
+      "state": "Rejected",
+      "metrics": "-1",
+    },
+    {
+      "type": "Firewall",
+      "title": "432459",
+      "owner": "samy",
+      "time_started": "4/16/2014 6:43am",
+      "state": "Accepted",
+      "metrics": "100",
+      "build": "100",
+      "unit_test": "100",
+      "functional_test": "100",
     }
   ];
 
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
-  $scope.addItem = function() {
-    var newItemNo = $scope.items.length + 1;
-    $scope.items.push('Item ' + newItemNo);
-  };
-
-  $scope.status = {
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
 });

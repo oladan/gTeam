@@ -5,38 +5,56 @@
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.js"></script>
     <script src="example.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="example.css" rel="stylesheet">
   </head>
   <body>
-
-<div ng-controller="AccordionDemoCtrl">
-  <p>
-    <button class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
-    <button class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
-  </p>
-
-  <label class="checkbox">
-    <input type="checkbox" ng-model="oneAtATime">
-    Open only one at a time
-  </label>
-  <accordion close-others="oneAtATime">
-    <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-      This content is straight in the template.
-    </accordion-group>
-    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-      {{group.content}}
-    </accordion-group>
-    <accordion-group heading="Dynamic Body Content">
-      <p>The body of the accordion group grows to fit the contents</p>
-        <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-        <div ng-repeat="item in items">{{item}}</div>
-    </accordion-group>
-    <accordion-group is-open="status.open">
-        <accordion-heading>
-            I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-        </accordion-heading>
-        This is just some content to illustrate fancy headings.
-    </accordion-group>
-  </accordion>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="type col-md-3">Changelist / Build</div>
+      <div class="title col-md-1">Owner</div>
+      <div class="owner col-md-2">Time Started</div>
+      <div class="time_started col-md-1">State</div>
+      <div class="state col-md-1">Metrics</div>
+      <div class="metrics col-md-1">Build</div>
+      <div class="build col-md-1">Unit Test</div>
+      <div class="unit_test col-md-2">Functional Test</div>
+      <span class="clearBoth" />
+    </div>
+    <div ng-controller="AccordionDemoCtrl" class="row">
+      <accordion close-others="oneAtATime">
+        <accordion-group ng-repeat="group in groups" is-disabled="false">
+          <accordion-heading>
+            <div class="type col-md-3">
+              {{group.type}}
+              {{group.title}}
+            </div>
+            <div class="owner col-md-1">
+              {{group.owner}}
+            </div>
+            <div class="time_started col-md-2">
+              {{group.time_started}}
+            </div>
+            <div class="state col-md-1">
+              {{group.state}}
+            </div>
+            <div class="metrics col-md-1">
+              {{group.metrics}}
+            </div>
+            <div class="build col-md-1">
+              {{group.build}}
+            </div>
+            <div class="unit_test col-md-1">
+              {{group.unit_test}}
+            </div>
+            <div class="functional_test col-md-2">
+              {{group.build}}
+            </div>
+            <br/>
+          </accordion-heading>
+          {{group.content}}
+        </accordion-group>
+      </accordion>
+    </div>
+  </div>
   </body>
 </html>
